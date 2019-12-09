@@ -18,17 +18,13 @@ module ScatterSwap
     def hash
       swap
       scatter
-      completed_string
+      @working_array.join
     end
 
     # de-obfuscates an integer
     def reverse_hash
       unscatter
       unswap
-      completed_string
-    end
-
-    def completed_string
       @working_array.join
     end
 
