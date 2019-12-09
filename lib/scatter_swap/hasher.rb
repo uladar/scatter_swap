@@ -1,4 +1,4 @@
-require 'scatter_swap/swapper_map'
+require 'scatter_swap/swapper'
 
 module ScatterSwap
   class Hasher
@@ -29,7 +29,7 @@ module ScatterSwap
     end
 
     def swapper_map(index)
-      SwapperMap.instance(@spin).generate(index)
+      Swapper.instance(@spin).generate(index)
     end
 
     # Using a unique map for each of the ten places,

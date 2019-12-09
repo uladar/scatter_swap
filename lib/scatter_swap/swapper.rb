@@ -1,6 +1,6 @@
 # We want a unique map for each place in the original number
 module ScatterSwap
-  class SwapperMap
+  class Swapper
     @all_swapper_maps = {}
 
     class << self
