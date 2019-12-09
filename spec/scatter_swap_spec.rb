@@ -16,9 +16,9 @@ describe "#hash" do
   end
 
   it "should not be sequential" do
-    first = ScatterSwap.hash(1)
-    second = ScatterSwap.hash(2)
-    second.should_not eql(first.to_i + 1)
+    100.times do |integer|
+      expect(ScatterSwap.hash(integer + 1).to_i).not_to eq(ScatterSwap.hash(integer).to_i + 1)
+    end
   end
 
   it "should be reversable" do
