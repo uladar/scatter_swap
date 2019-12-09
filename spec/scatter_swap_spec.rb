@@ -23,9 +23,15 @@ describe "#hash" do
 
   it "should be reversible" do
     100.times do |integer|
-      length = 1 + (integer / 10)
-      hashed = ScatterSwap.hash(integer, 0, length)
-      ScatterSwap.reverse_hash(hashed, 0, length).to_i.should == integer
+      hashed = ScatterSwap.hash(integer)
+      expect(ScatterSwap.reverse_hash(hashed).to_i).to eq integer
+    end
+  end
+
+  it "should be reversible in different length" do
+    100.times do |length|
+      hashed = ScatterSwap.hash(123456, length)
+      expect(ScatterSwap.reverse_hash(hashed, length).to_i).to eq 123456
     end
   end
 
