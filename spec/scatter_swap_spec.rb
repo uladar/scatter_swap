@@ -4,14 +4,14 @@ require 'scatter_swap'
 describe "#hash" do
   it "should be 10 digits by default" do
     100.times do |integer|
-      ScatterSwap.hash(integer).to_s.length.should == 10
+      expect(ScatterSwap.hash(integer).to_s.length).to eq 10
     end
   end
 
   it "should accept a length" do
     100.times do |integer|
       length = 1 + (integer / 10)
-      ScatterSwap.hash(integer, 0, length).to_s.length.should == length
+      expect(ScatterSwap.hash(integer, 0, length).to_s.length).to eq length
     end
   end
 
@@ -43,8 +43,8 @@ describe "#hash" do
       hashed = ScatterSwap.hash(integer, 0, length)
       # => "02792428384994356370"
 
-      ScatterSwap.reverse_hash(hashed, 0, length).to_i.should == integer
-      ScatterSwap.reverse_hash(hashed.to_i, 0, length).to_i.should == integer
+      expect(ScatterSwap.reverse_hash(hashed, 0, length).to_i).to eq integer
+      expect(ScatterSwap.reverse_hash(hashed.to_i, 0, length).to_i).to eq integer
     end
   end
 end
@@ -59,14 +59,14 @@ describe "#swapper_map" do
   end
 
   it "should create a unique map array for each digit" do
-    @map_set.length.should == 10
-    @map_set.uniq.length.should == 10
+    expect(@map_set.length).to eq 10
+    expect(@map_set.uniq.length).to eq 10
   end
 
   it "should include all 10 digits in each map" do
     @map_set.each do |map|
-      map.length.should == 10
-      map.uniq.length.should == 10
+      expect(map.length).to eq 10
+      expect(map.uniq.length).to eq 10
     end
   end
 end
@@ -77,7 +77,7 @@ describe "#scatter" do
       s = ScatterSwap::Hasher.new(integer)
       original_array = s.working_array
       s.scatter
-      s.working_array.should_not == original_array
+      expect(s.working_array).not_to eq original_array
     end
   end
 
@@ -87,7 +87,7 @@ describe "#scatter" do
       original_array = s.working_array.clone
       s.scatter
       s.unscatter
-      s.working_array.should == original_array
+      expect(s.working_array).to eq original_array
     end
   end
 end
@@ -98,7 +98,7 @@ describe "#swap" do
       s = ScatterSwap::Hasher.new(integer)
       original_array = s.working_array.clone
       s.swap
-      s.working_array.should_not == original_array
+      expect(s.working_array).not_to eq original_array
     end
   end
 
@@ -108,7 +108,7 @@ describe "#swap" do
       original_array = s.working_array.clone
       s.swap
       s.unswap
-      s.working_array.should == original_array
+      expect(s.working_array).to eq original_array
     end
   end
 end
