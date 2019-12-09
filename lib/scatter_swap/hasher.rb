@@ -34,7 +34,7 @@ module ScatterSwap
     def swapper_map(index)
       array = DIGITS.dup
       10.times.collect.with_index do |i|
-        array.rotate!(index + i ^ spin).pop
+        array.rotate!(index + i ^ @spin).pop
       end
     end
 
@@ -59,7 +59,7 @@ module ScatterSwap
     def scatter
       sum_of_digits = @working_array.inject(:+).to_i
       @working_array = @length.times.collect do
-        @working_array.rotate!(spin ^ sum_of_digits).pop
+        @working_array.rotate!(@spin ^ sum_of_digits).pop
       end
     end
 
@@ -71,14 +71,9 @@ module ScatterSwap
       @working_array.tap do |unscatter|
         @length.times do
           unscatter.push scattered_array.pop
-          unscatter.rotate! (sum_of_digits ^ spin) * -1
+          unscatter.rotate! (sum_of_digits ^ @spin) * -1
         end
       end
-    end
-
-    # Add some spice so that different apps can have differently mapped hashes
-    def spin
-      @spin || 0
     end
   end
 end
