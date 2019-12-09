@@ -47,7 +47,7 @@ module ScatterSwap
       end
     end
 
-    # Rearrange the order of each digit in a reversable way by using the
+    # Rearrange the order of each digit in a reversible way by using the
     # sum of the digits (which doesn't change regardless of order)
     # as a key to record how they were scattered
     def scatter

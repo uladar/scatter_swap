@@ -21,7 +21,7 @@ describe "#hash" do
     end
   end
 
-  it "should be reversable" do
+  it "should be reversible" do
     100.times do |integer|
       length = 1 + (integer / 10)
       hashed = ScatterSwap.hash(integer, 0, length)
@@ -30,7 +30,7 @@ describe "#hash" do
   end
 
   context "When hashed_integer length is less than length used in ScatterSwap.hash" do
-    it "should be reversable" do
+    it "should be reversible" do
       length = 20
       integer = 2970439418180909067
 
@@ -75,7 +75,7 @@ describe "#scatter" do
     end
   end
 
-  it "should be reversable" do
+  it "should be reversible" do
     100.times do |integer|
       s = ScatterSwap::Hasher.new(integer)
       original_array = s.working_array.clone
@@ -96,7 +96,7 @@ describe "#swap" do
     end
   end
 
-  it "should be reversable" do
+  it "should be reversible" do
     100.times do |integer|
       s = ScatterSwap::Hasher.new(integer)
       original_array = s.working_array.clone

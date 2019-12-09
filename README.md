@@ -23,7 +23,7 @@ We also want sequential integers to become non-sequential.
 
 So for example it will turn `7001, 7002, 7003` into `5270192353, 7107163820, 3296163828`, and back again.
 
-Please note, this is not encryption or related to security in any way.  It lightly obfuscates an integer in a reversable way.
+Please note, this is not encryption or related to security in any way.  It lightly obfuscates an integer in a reversible way.
 
 ## Usage
 
@@ -65,7 +65,7 @@ ScatterSwap is an integer hash function designed to have:
 
 - zero collisions ( http://en.wikipedia.org/wiki/Perfect_hash_function )
 - achieve avalanche ( http://en.wikipedia.org/wiki/Avalanche_effect )
-- reversable
+- reversible
 
 We do that by combining two distinct strategies.
 
