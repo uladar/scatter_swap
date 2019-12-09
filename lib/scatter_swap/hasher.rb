@@ -1,3 +1,5 @@
+require 'scatter_swap/swapper_map'
+
 module ScatterSwap
   class Hasher
     DIGITS = (0..9).to_a.freeze
@@ -30,14 +32,8 @@ module ScatterSwap
       @working_array.join
     end
 
-    # We want a unique map for each place in the original number
     def swapper_map(index)
-      array = DIGITS.dup
-      sum = 0
-      10.times.map.with_index do |i|
-        sum = (sum + ((index + i) ^ @spin) - 1) % (10 - i)
-        next array.delete_at(sum)
-      end
+      SwapperMap.instance(@spin).generate(index)
     end
 
     # Using a unique map for each of the ten places,
