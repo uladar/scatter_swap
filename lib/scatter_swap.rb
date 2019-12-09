@@ -1,5 +1,7 @@
-require "scatter_swap/version"
-require "scatter_swap/hasher"
+# frozen_string_literal: true
+
+require 'scatter_swap/version'
+require 'scatter_swap/hasher'
 
 module ScatterSwap
   def self.hash(plain_integer, spin = 0, length = 10)

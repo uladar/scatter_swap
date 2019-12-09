@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'scatter_swap'
 
 # This file is spike code and is not part of the library

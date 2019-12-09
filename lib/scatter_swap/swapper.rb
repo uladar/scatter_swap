@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+#
 # We want a unique map for each place in the original number
 module ScatterSwap
   class Swapper
