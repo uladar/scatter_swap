@@ -33,8 +33,10 @@ module ScatterSwap
     # We want a unique map for each place in the original number
     def swapper_map(index)
       array = DIGITS.dup
+      sum = 0
       10.times.collect.with_index do |i|
-        array.rotate!(index + i ^ @spin).pop
+        sum = (sum + ((index + i) ^ @spin) - 1) % (10 - i)
+        next array.delete_at(sum)
       end
     end
 
