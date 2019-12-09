@@ -75,7 +75,8 @@ describe "#scatter" do
   it "should return a number different from original" do
     100.times do |integer|
       s = ScatterSwap::Hasher.new(integer)
-      original_array = s.working_array
+      s.swap
+      original_array = s.working_array.dup.freeze
       s.scatter
       expect(s.working_array).not_to eq original_array
     end
@@ -84,7 +85,8 @@ describe "#scatter" do
   it "should be reversible" do
     100.times do |integer|
       s = ScatterSwap::Hasher.new(integer)
-      original_array = s.working_array.clone
+      s.swap
+      original_array = s.working_array.dup.freeze
       s.scatter
       s.unscatter
       expect(s.working_array).to eq original_array
