@@ -9,7 +9,7 @@ module ScatterSwap
       @spin = spin
       @length = length
       zero_pad = original_integer.to_s.rjust(length, '0')
-      @working_array = zero_pad.chars.collect {|d| d.to_i}
+      @working_array = zero_pad.chars.map(&:to_i)
     end
 
     # obfuscates an integer up to @length digits in length
@@ -34,7 +34,7 @@ module ScatterSwap
     def swapper_map(index)
       array = DIGITS.dup
       sum = 0
-      10.times.collect.with_index do |i|
+      10.times.map.with_index do |i|
         sum = (sum + ((index + i) ^ @spin) - 1) % (10 - i)
         next array.delete_at(sum)
       end
@@ -43,14 +43,14 @@ module ScatterSwap
     # Using a unique map for each of the ten places,
     # we swap out one number for another
     def swap
-      @working_array = @working_array.collect.with_index do |digit, index|
+      @working_array = @working_array.map.with_index do |digit, index|
         swapper_map(index)[digit]
       end
     end
 
     # Reverse swap
     def unswap
-      @working_array = @working_array.collect.with_index do |digit, index|
+      @working_array = @working_array.map.with_index do |digit, index|
         swapper_map(index).rindex(digit)
       end
     end
@@ -60,7 +60,7 @@ module ScatterSwap
     # as a key to record how they were scattered
     def scatter
       sum_of_digits = @working_array.inject(:+).to_i
-      @working_array = @length.times.collect do
+      @working_array = @length.times.map do
         @working_array.rotate!(@spin ^ sum_of_digits).pop
       end
     end
