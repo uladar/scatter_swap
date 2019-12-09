@@ -9,7 +9,7 @@ module ScatterSwap
       @spin = spin
       @length = length
       zero_pad = original_integer.to_s.rjust(length, '0')
-      @working_array = zero_pad.split("").collect {|d| d.to_i}
+      @working_array = zero_pad.chars.collect {|d| d.to_i}
     end
 
     # obfuscates an integer up to @length digits in length
