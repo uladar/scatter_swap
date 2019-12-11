@@ -40,10 +40,10 @@ Pass that obfuscated version in and it will return the original (as a zero padde
 
 *Because this was originally built for urls like this `example.com/users/00000000001` it outputs strings.  This is why the examples above have `to_i` tacked on to them.  Since extracting it to its own library, that may not make sense anymore.  I'm considering output the same type as it is input.  Thoughts?*
 
-## How it works 
+## How it works
 
 This library is built for integers that can be expressed with 10 digits.
-It zero pads smaller numbers. 
+It zero pads smaller numbers.
 
 The number 1 is expressed with:
 
@@ -86,7 +86,7 @@ can reverse it.
 
 Add this line to your application's Gemfile:
 
-    gem 'scatter_swap'
+    gem 'bonio-scatter_swap'
 
 And then execute:
 
@@ -94,7 +94,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install scatter_swap
+    $ gem install bonio-scatter_swap
 
 ## Contributing
 
