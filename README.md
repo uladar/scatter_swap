@@ -86,7 +86,7 @@ can reverse it.
 
 Add this line to your application's Gemfile:
 
-    gem 'bonio-scatter_swap'
+    gem 'scatter_swap'
 
 And then execute:
 
@@ -94,7 +94,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install bonio-scatter_swap
+    $ gem install scatter_swap
 
 ## Contributing
 
